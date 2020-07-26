@@ -63,7 +63,9 @@
   </div>
 
   <div id="instructions-step-one" class="main-section-instructions">
-    <p>1.) Pick the elements you want to use in your prompt.</p>
+    <ol>
+      <li>Pick the elements you want to use in your prompt</li>
+    </ol>
   </div>
 
   <div class="main-section" id="elements-options">
@@ -71,7 +73,7 @@
       <li><a href="#elements-tab-basic">Basic Elements</a></li>
       <li><a href="#elements-tab-status">Status Elements</a></li>
       <li><a href="#elements-tab-times">Date &amp; Time Elements</a></li>
-      <!-- WIP <li><a href="#elements-tab-pyprompt">PyPrompt</a></li>-->
+      <li><a href="#elements-tab-pyprompt">PyPrompt</a></li>
       <li><a href="#elements-tab-extra">Extra Characters</a></li>
     </ul>
 
@@ -115,10 +117,20 @@
           title="If in a git repository, the current branch and status indicators. Otherwise blank.">Git Status</li>
       </ul>
     </div>
-
-    <div class="elements-tab" style="overflow:auto; max-height: 300px;" id="elements-tab-extra">
-      <ul id="elements-extra">
+    <div class="elements-tab" id="elements-tab-pyprompt">
+      <ul id="elements-pyprompt">
+        <li class="ui-state-default prompt-option-origin prompt-option" id="option-pyprompt_user"
+          title="Shows username if different from login user, shows machine name if connected remotely">User</li>
+        <li class="ui-state-default prompt-option-origin prompt-option" id="option-pyprompt_path"
+          title="Shows powerline like path limited at 40 characters">Path</li>
+        <li title="If in a git repository, the current branch, status, and remote type indicators. Otherwise blank."
+          class="ui-state-default prompt-option-origin prompt-option" id="option-pyprompt_gitcwd">Git Status</li>
+        <li class="ui-state-default prompt-option-origin prompt-option" id="option-pyprompt_uptime"
+          title="Shows the current uptime">Uptime</li>
       </ul>
+    </div>
+    <div class="elements-tab" style="overflow:auto; max-height: 300px;" id="elements-tab-extra">
+      <ul id="elements-extra"></ul>
     </div>
 
     <div class="elements-tab" id="elements-tab-times">
@@ -143,7 +155,10 @@
   </div>
 
   <div id="instructions-step-two" class="main-section-instructions">
-    <p>2.) Select colors and rearrange elements here.</p>
+    <ol start="2">
+      <li>Select colors and rearrange elements here</li>
+    </ol>
+    </p>
   </div>
 
   <div class="main-section" id="elements-sortable">
@@ -175,7 +190,9 @@
   </div>
 
   <div id="instructions-step-three" class="main-section-instructions">
-    <p>3.) Preview the output.</p>
+    <ol start="3">
+      <li>Preview the output</li>
+    </ol>
     <p>24-bit Colors</p>
   </div>
 
@@ -213,7 +230,9 @@
   </div>
 
   <div id="instructions-step-four" class="main-section-instructions">
-    <p>4.) Copy and paste the code into your bashrc.</p>
+    <ol start="4">
+      <li>Copy and paste the code into your bashrc</li>
+    </ol>
   </div>
 
   <div class="main-section" id="code-output-wrapper">
