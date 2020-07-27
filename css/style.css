@@ -221,6 +221,7 @@ li.option-custom-inp {
 
 li.option-custom-inp input[type=text] {
     width: 127px;
+    font-family: 'Caskaydia Cove Nerd Font';
 }
 
 ul#elements-list {
