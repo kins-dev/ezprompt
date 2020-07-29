@@ -1,4 +1,12 @@
 /*Begin output objects*/
+var promptElementObj = {
+    color_4bit: "000000",
+    color_8bit: "000000",
+    color_true: "000000"
+};
+
+
+
 var preview_types = [
     "tc",
     "extended",
@@ -310,12 +318,15 @@ function populatePalettes() {
     }
     palette.push(colorArray.slice(232, 256));
     base_colors = colorArray.slice(0, 16);
+    colorArray = ["rgba (0, 0, 0, 0)"];
+    palette.push(colorArray);
     for (i = 0; i < 256; i++) {
         color = colorIdToHex(i).toUpperCase();
         if ((term_color_codes.hasOwnProperty(color)))
             continue;
         term_color_codes[color] = i;
     }
+
 }
 
 /*Begin interactive calls*/
@@ -619,21 +630,13 @@ function match_spectrums() {
     if (fg_value) {
         $("#input-spectrum-fg").spectrum("set", fg_value);
     } else {
-        if (preview_bg === "dark") {
-            $("#input-spectrum-fg").spectrum("set", "white");
-        } else {
-            $("#input-spectrum-fg").spectrum("set", "black");
-        }
+        $("#input-spectrum-fg").spectrum("set", "transparent");
     }
 
     if (bg_value) {
         $("#input-spectrum-bg").spectrum("set", bg_value);
     } else {
-        if (preview_bg === "dark") {
-            $("#input-spectrum-bg").spectrum("set", "black");
-        } else {
-            $("#input-spectrum-bg").spectrum("set", "white");
-        }
+        $("#input-spectrum-bg").spectrum("set", "transparent");
     }
 }
 
@@ -744,9 +747,16 @@ function make_spectrum(element_id) {
         move: function (color) {
             try {
                 var rgb = color.toRgb();
-                $("#elements-list")
-                    .children("li.ui-selected")
-                    .attr(element_suffix == "fg" ? "option-fg" : "option-bg", rgbToHex(rgb.r, rgb.g, rgb.b));
+                var name = color.toName();
+                if (name && name === "transparent") {
+                    $("#elements-list")
+                        .children("li.ui-selected")
+                        .removeAttr(element_suffix == "fg" ? "option-fg" : "option-bg");
+                } else {
+                    $("#elements-list")
+                        .children("li.ui-selected")
+                        .attr(element_suffix == "fg" ? "option-fg" : "option-bg", rgbToHex(rgb.r, rgb.g, rgb.b));
+                }
             } catch (e) { }
             refresh_page();
         }
